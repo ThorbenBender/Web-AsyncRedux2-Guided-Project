@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { arrayOf, shape, string, func } from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { getQuotesAsync, deleteQuoteAsync, makeQuoteOfTheDay } from '../state/actionCreators';
+import { getQuotesAsync, deleteQuoteAsync, makeQuoteOfTheDay, loginAsync } from '../state/actionCreators';
 import Quote from './Quote';
 
 export class Quotes extends React.Component {
@@ -27,6 +27,7 @@ export class Quotes extends React.Component {
             ))
           }
         </div>
+        <button onClick={() => this.props.loginAsync('me', 123456)}>Login</button>
       </div>
     );
   }
@@ -58,6 +59,7 @@ function mapDispatchToProps(dispatch) {
     getQuotesAsync,
     deleteQuoteAsync,
     makeQuoteOfTheDay,
+    loginAsync,
   }, dispatch);
 }
 
